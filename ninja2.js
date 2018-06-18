@@ -50,7 +50,7 @@ Ninja.prototype.punch = function(target){
 
 
 Ninja.prototype.kick = function(target){
-    if (!target)
+    if  ((!target) || (target===this))
     { throw new Error ("I am not going to kick in the air")}
    target.health -= 15;
    console.log (this.name,'kicked',target.name,'and his health is reduced to',target.health)
