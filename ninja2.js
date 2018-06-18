@@ -41,10 +41,11 @@ Ninja.prototype.sayName = function(){
     }
 
 Ninja.prototype.punch = function(target){
-    if (!target)
-    { throw new Error ("I am not going to punch in the air")}
+    if ((!target) || (target===this))
+    { throw new Error ("I am not going to punch in the air or myself")}
    target.health -= 10;
    console.log (this.name,'punched',target.name,'and his health is reduced to',target.health)
+   return this;
     }
 
 
@@ -53,13 +54,14 @@ Ninja.prototype.kick = function(target){
     { throw new Error ("I am not going to kick in the air")}
    target.health -= 15;
    console.log (this.name,'kicked',target.name,'and his health is reduced to',target.health)
+   return this;
  
     }   
 
 var turtle = new Ninja('Dell');
 var turtle1 = new Ninja('Gates');
 turtle1.drinkSake().showStats();
+turtle.punch(turtle1).punch(turtle1).kick(turtle1);
 turtle.punch(turtle1);
-turtle.kick(turtle1);
 
-// How can i chain the methods, punch().kick()?
+// How can i chain the methods, punch().kick()?  never mind got it! ( by returning this )
