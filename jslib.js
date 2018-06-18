@@ -154,5 +154,6 @@ var odd = _.filter(['1','2','3','4','5'],function(num){return !(num %  2 === 0);
 console.log(odd);
 var even = _.reject(['1','2','3','4','5'],function(num){return !(num % 2 === 0); });
 console.log(even);
-var product = _.reduce(['1','2','3','4','5'],function(num1,num2){return num1*num2; });
+//let memo = 1;
+var product = _.reduce(['1','2','3','4','5'],function(num1,num2){return num1*num2; },1);
 console.log(product);
